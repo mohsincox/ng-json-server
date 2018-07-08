@@ -1,0 +1,27 @@
+<div class="container">
+  <h3>
+    Product List <a routerLink='/product/create' class="btn btn-outline-primary float-right"> + Add Product</a>
+  </h3>        
+  <div class="table-responsive">
+    <table class="table table-dark table-hover table-sm">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Color</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.color }}</td>
+          <td><a [routerLink]="['/product/update', product.id]" class="btn btn-outline-secondary btn-xs">UPDATE</a></td>
+          <td><a (click)="deleteProduct(product.id)" class="btn btn-outline-danger btn-xs">DELETE</a></td>
+        </tr> 
+      </tbody>
+    </table>
+  </div>
+</div>
